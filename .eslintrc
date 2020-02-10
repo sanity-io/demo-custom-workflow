@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "consistent-return": 0,
+    "id-length": 0,
+    "import/order": ["error", {"alphabetize": true}],
+    "import/prefer-default-export": 0,
+    "max-params": 0,
+    "no-console": 0,
+    "no-void": 0,
+    "react/display-name": 0,
+    "react/jsx-no-bind": 0,
+    "react/no-multi-comp": 0,
+    "react/prop-types": 0
+  }
+}

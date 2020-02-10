@@ -1,0 +1,94 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  background: var(--component-bg);
+  border-radius: 4px;
+  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: box-shadow 100ms;
+  user-select: none;
+}
+
+.content {
+  cursor: move;
+  cursor: grab;
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline-color);
+}
+
+.preview {
+  position: relative;
+  display: flex;
+  padding: var(--medium-padding);
+  align-items: center;
+}
+
+.footer {
+  padding: var(--small-padding);
+  display: flex;
+  background: var(--component-bg);
+  margin-top: 1px;
+}
+
+.footerLeft {
+  position: relative;
+}
+
+.footerRight {
+  margin-left: auto;
+}
+
+.button {
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  font: inherit;
+  line-height: 1;
+  background: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  vertical-align: top;
+  text-decoration: none;
+
+  @nest & > div {
+    outline: none;
+    font-size: 12px;
+    padding: 6px;
+    border-radius: 2px;
+    display: inline-flex;
+    color: var(--gray);
+  }
+
+  @nest &:hover > div {
+    color: inherit;
+    background: var(--gray-lighter);
+  }
+}
+
+.buttonIcon {
+  display: block;
+  margin-right: var(--extra-small-padding);
+
+  @nest & > svg {
+    display: block;
+  }
+}
+
+.buttonLabel {
+  display: block;
+}
+
+.editAssigneesButton {
+  -webkit-appearance: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  outline: none;
+  cursor: pointer;
+}

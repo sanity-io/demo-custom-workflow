@@ -1,0 +1,15 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 1.5em;
+}
+
+.displayName {
+  margin-left: var(--small-padding);
+  font-size: 14px;
+}

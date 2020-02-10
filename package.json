@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "demo-custom-workflow",
+  "version": "1.0.0",
+  "description": "A demonstration of a custom publishing workflow using Sanity.",
+  "main": "package.json",
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity start",
+    "start": "sanity start",
+    "test": "sanity check",
+    "delete-metadata": "sanity exec --with-user-token app/scripts/deleteWorkflowDocs.js"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "1.148.3-document-actions.26",
+    "@sanity/components": "1.148.3-document-actions.26",
+    "@sanity/core": "1.148.3-document-actions.26",
+    "@sanity/default-layout": "1.148.3-document-actions.26",
+    "@sanity/default-login": "1.148.3-document-actions.26",
+    "@sanity/desk-tool": "1.148.3-document-actions.26",
+    "@sanity/react-hooks": "1.148.3-document-actions.26",
+    "@sanity/vision": "1.148.3-document-actions.26",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-use-gesture": "^7.0.4"
+  }
+}

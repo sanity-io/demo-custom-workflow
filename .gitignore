@@ -1,0 +1,21 @@
+.DS_Store
+
+# Logs
+/logs
+/*.log
+
+# Coverage directory used by tools like istanbul
+/coverage
+
+# Dependency directories
+/node_modules
+
+# Built assets
+/dist
+
+# Plugin config
+/config/@sanity/default-login.json
+/config/.checksums
+
+# Ignore yarn files created by @sanity/cli
+/yarn.lock

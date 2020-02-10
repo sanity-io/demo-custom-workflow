@@ -1,0 +1,136 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  padding: var(--small-padding) 0;
+  min-width: 240px;
+}
+
+.selectedUserList {
+  border: 1px solid var(--hairline-color);
+  border-radius: 2px;
+}
+
+.emptyUserList {
+  composes: selectedUserList;
+  padding: var(--small-padding);
+}
+
+.search {
+  padding: var(--small-padding);
+}
+
+.menuWrapper {
+  position: relative;
+
+  @nest &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+
+  @nest &:before {
+    top: 0;
+  }
+
+  @nest &:after {
+    bottom: 0;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: var(--small-padding) 0;
+  height: 134px;
+  overflow: auto;
+}
+
+.menuButton {
+  -webkit-font-smoothing: inherit;
+  -webkit-appearance: none;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+
+  @nest & > div {
+    padding: var(--small-padding) 0.75em;
+    outline: none;
+  }
+
+  @nest &:not([disabled]):hover > div {
+    /* TODO: replace with variable */
+    background: #def;
+  }
+
+  @nest &[disabled] {
+    opacity: 0.25;
+  }
+}
+
+.menuItem {
+  -webkit-font-smoothing: inherit;
+  -webkit-appearance: none;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+
+  @nest & > div {
+    /* TODO: replace with variable */
+    padding: var(--small-padding) 0.75em;
+    outline: none;
+  }
+
+  @nest &:hover > div {
+    /* TODO: replace with variable */
+    background: #def;
+  }
+}
+
+.userOption {
+  display: flex;
+  align-items: center;
+}
+
+.userCheckbox {
+  width: 1em;
+  /* TODO: replace with variable */
+  margin-left: 0.75em;
+
+  @nest & > input {
+    display: none;
+  }
+}
+
+.userCheckboxIcon {
+  display: none;
+
+  @nest input:checked + & {
+    display: block;
+  }
+}
+
+.userCard {
+  flex: 1;
+}

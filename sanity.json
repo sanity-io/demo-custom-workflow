@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "project": {
+    "name": "Custom workflow demo"
+  },
+  "api": {
+    "projectId": "m2begyfh",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "app/structure"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "app/documentActions"
+    },
+    {
+      "implements": "part:@sanity/base/document-badges/resolver",
+      "path": "app/documentBadges"
+    },
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "app/schema"
+    },
+    {
+      "implements": "part:@sanity/base/tool",
+      "path": "app/tools/board"
+    }
+  ]
+}

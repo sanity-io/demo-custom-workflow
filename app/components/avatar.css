@@ -1,0 +1,32 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  vertical-align: top;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--component-bg);
+  border-radius: 50%;
+}
+
+.image {
+  background: var(--gray-light);
+  border-radius: 50%;
+  overflow: hidden;
+  height: 1.5em;
+
+  @nest & img {
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.initials {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+}

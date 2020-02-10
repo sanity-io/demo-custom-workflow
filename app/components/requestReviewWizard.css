@@ -1,0 +1,9 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.buttonContainer {
+  padding: 0 var(--small-padding) var(--small-padding);
+
+  @nest & > * {
+    width: 100%;
+  }
+}
