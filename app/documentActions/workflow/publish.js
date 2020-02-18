@@ -17,7 +17,7 @@ export const publishAction = props => {
     }
 
     metadata.setState('published')
-    metadata.commit()
+    // metadata.commit()
     ops.publish.execute()
     props.onComplete()
   }

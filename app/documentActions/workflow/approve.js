@@ -10,7 +10,7 @@ export const approveAction = props => {
 
   const onHandle = () => {
     metadata.setState('approved')
-    metadata.commit()
+    // metadata.commit()
     props.onComplete()
   }
 

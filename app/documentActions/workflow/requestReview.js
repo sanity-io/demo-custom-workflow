@@ -28,7 +28,7 @@ export const requestReviewAction = props => {
     }
 
     metadata.setState('inReview')
-    metadata.commit()
+    // metadata.commit()
     props.onComplete()
   }
 

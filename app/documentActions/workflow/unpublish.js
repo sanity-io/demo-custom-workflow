@@ -17,7 +17,7 @@ export const unpublishAction = props => {
     }
 
     metadata.setState('draft')
-    metadata.commit()
+    // metadata.commit()
     ops.unpublish.execute()
     props.onComplete()
   }

@@ -10,7 +10,7 @@ export const requestChangesAction = props => {
 
   const onHandle = () => {
     metadata.setState('changesRequested')
-    metadata.commit()
+    // metadata.commit()
     props.onComplete()
   }
 
