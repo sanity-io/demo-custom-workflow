@@ -35,7 +35,7 @@ export const deleteAction = props => {
     },
     disabled: ops.delete.disabled,
     icon: TrashIcon,
-    keyboardShortcut: ['mod', 'shift', 'd'],
+    shortcut: 'mod+shift+d',
     label: 'Delete',
     onHandle
   }

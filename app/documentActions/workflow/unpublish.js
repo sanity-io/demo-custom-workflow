@@ -25,7 +25,7 @@ export const unpublishAction = props => {
   return {
     disabled: ops.unpublish.disabled,
     icon: CloseIcon,
-    keyboardShortcut: ['mod', 'shift', 'u'],
+    shortcut: 'mod+shift+u',
     label: 'Unpublish',
     onHandle
   }

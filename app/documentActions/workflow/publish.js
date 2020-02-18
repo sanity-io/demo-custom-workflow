@@ -25,7 +25,7 @@ export const publishAction = props => {
   return {
     disabled: ops.publish.disabled,
     icon: PublishIcon,
-    keyboardShortcut: ['mod', 'shift', 'p'],
+    shortcut: 'mod+shift+p',
     label: 'Publish',
     onHandle
   }

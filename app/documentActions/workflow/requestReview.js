@@ -8,10 +8,6 @@ export const requestReviewAction = props => {
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
   const {state} = metadata.data
 
-  // if (!['draft', 'changesRequested'].includes(metadata.data.state)) {
-  //   return null
-  // }
-
   if (!props.draft || state === 'inReview' || state === 'approved') {
     return null
   }
