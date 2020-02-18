@@ -16,14 +16,14 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "1.148.3-document-actions.26",
-    "@sanity/components": "1.148.3-document-actions.26",
-    "@sanity/core": "1.148.3-document-actions.26",
-    "@sanity/default-layout": "1.148.3-document-actions.26",
-    "@sanity/default-login": "1.148.3-document-actions.26",
-    "@sanity/desk-tool": "1.148.3-document-actions.26",
-    "@sanity/react-hooks": "1.148.3-document-actions.26",
-    "@sanity/vision": "1.148.3-document-actions.26",
+    "@sanity/base": "1.148.5-document-actions.23",
+    "@sanity/components": "1.148.5-document-actions.23",
+    "@sanity/core": "1.148.5-document-actions.23",
+    "@sanity/default-layout": "1.148.5-document-actions.23",
+    "@sanity/default-login": "1.148.5-document-actions.23",
+    "@sanity/desk-tool": "1.148.5-document-actions.23",
+    "@sanity/react-hooks": "1.148.5-document-actions.23",
+    "@sanity/vision": "1.148.5-document-actions.23",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-use-gesture": "^7.0.4"
