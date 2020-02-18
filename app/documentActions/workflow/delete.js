@@ -29,7 +29,9 @@ export const deleteAction = props => {
   return {
     dialog: showConfirmDialog && {
       type: 'confirm',
-      content: <div>Sure you want to delete?</div>
+      message: <div>Sure you want to delete?</div>,
+      onConfirm: onHandle,
+      onCancel: () => setShowConfirmDialog(false)
     },
     disabled: ops.delete.disabled,
     icon: TrashIcon,
