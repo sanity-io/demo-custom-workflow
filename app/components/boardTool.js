@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'part:@sanity/components/buttons/default'
 import {useDrag} from 'react-use-gesture'
-import {states} from '../config/workflow'
+import {states, types as workflowTypes} from '../config/workflow'
 import {useWorkflowMetadataList} from '../lib/workflow'
 import {DocumentCard} from './documentCard'
 
@@ -15,7 +15,7 @@ function filterItemsByState(items, state) {
 export function BoardTool() {
   const [dragData, setDragData] = React.useState(null)
   const [targetState, setTargetState] = React.useState(null)
-  const metadataList = useWorkflowMetadataList()
+  const metadataList = useWorkflowMetadataList(workflowTypes)
   const items = metadataList && metadataList.data
   const documentIds = metadataList.documentIds
 

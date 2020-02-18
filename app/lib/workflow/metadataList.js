@@ -120,13 +120,13 @@ function metadataListReducer(state, event) {
   return state
 }
 
-function getWorkflowMetadataListDataEvent$() {
+function getWorkflowMetadataListDataEvent$(workflowTypes) {
   const documentListSnapshotEvent$ = getDocumentQuery$(DOCUMENT_LIST_QUERY, {
-    workflowTypes: ['post', 'release']
+    workflowTypes
   }).pipe(map(snapshot => ({type: 'document.snapshot', snapshot, timestamp: 0})))
 
   const documentListMutationsEvent$ = getDocumentMutations$(DOCUMENT_LIST_FILTER, {
-    workflowTypes: ['post', 'release']
+    workflowTypes
   })
 
   const updatedDocumentListSnapshotEvent$ = documentListMutationsEvent$.pipe(
@@ -139,7 +139,7 @@ function getWorkflowMetadataListDataEvent$() {
       }
 
       return getDocumentQuery$(DOCUMENT_LIST_QUERY, {
-        workflowTypes: ['post', 'release']
+        workflowTypes
       }).pipe(
         map(snapshot => ({
           type: 'document.snapshot',
@@ -185,10 +185,10 @@ function getWorkflowMetadataListDataEvent$() {
   )
 }
 
-function getWorkflowMetadataListState$() {
+function getWorkflowMetadataListState$(workflowTypes) {
   const methodSubject = new Subject()
   const initialState = {data: [], documentIds: []}
-  const dataEvent$ = getWorkflowMetadataListDataEvent$()
+  const dataEvent$ = getWorkflowMetadataListDataEvent$(workflowTypes)
   const methodEvent$ = methodSubject.asObservable()
   const events$ = merge(dataEvent$, methodEvent$).pipe(
     scan((events, event) => {
@@ -287,8 +287,8 @@ function getWorkflowMetadataListState$() {
   }
 }
 
-export function useWorkflowMetadataList() {
-  const {initialState, state$} = getWorkflowMetadataListState$()
+export function useWorkflowMetadataList(workflowTypes) {
+  const {initialState, state$} = getWorkflowMetadataListState$(workflowTypes)
 
-  return useObservable(state$, initialState)
+  return useObservable(state$, initialState, workflowTypes)
 }
