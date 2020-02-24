@@ -54,15 +54,15 @@ sanity init
 
 #### Create your custom schema definitions
 
-Edit the schema files in `app/schema` to create content models you need for your project. Visit the [content modelling documentation](https://www.sanity.io/docs/content-modelling) to learn about custom schemas.
+Edit the schema files in `app/schema` to create the content models you need in your project. Visit the [content modelling documentation](https://www.sanity.io/docs/content-modelling) to learn about custom schemas.
 
 #### Configure the custom workflow
 
-Once you have created the document types needed for your project, you need to add the custom document types to the workflow `types` configuration array in `app/config/workflow.js`.
+Once you have created the document types you need in your project, the next step is to add the custom document types to the workflow `types` configuration array in `app/config/workflow.js`.
 
 #### Starting the development server
 
-In this Sanity Studio project is run in the same manner as standard Sanity Studio project:
+This Sanity Studio project is run in the same manner as standard Sanity Studio projects:
 
 ```sh
 npm start
@@ -70,7 +70,7 @@ npm start
 
 #### Deployment
 
-If you want to deploy this Studio on a public URL so that editors can join your project, you may use the default Sanity hosting:
+If you want to deploy this Studio to a public URL so that editors can join your project, you may use the default Sanity hosting:
 
 ```sh
 sanity deploy
@@ -79,7 +79,6 @@ sanity deploy
 #### Got questions?
 
 Join our Slack community: https://slack.sanity.io/
-
 
 ### Demo code reference
 
