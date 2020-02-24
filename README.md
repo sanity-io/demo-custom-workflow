@@ -35,7 +35,7 @@ npm start
 
 ### What’s the deal with this project?
 
-The purpose of this repository is to provide an example of how to go about creating a custom publishing workflow environment using [Sanity Studio](https://www.sanity.io/docs/sanity-studio).
+The purpose of this repository is to provide an example of how to go about [creating a custom publishing workflow environment](https://www.sanity.io/docs/custom-workflows) using [Sanity Studio](https://www.sanity.io/docs/sanity-studio).
 
 > NOTE: Some of the code in this demo uses internal APIs that may change in the future. If you use this code as a starting point, and experience missing functionality, please review the changelog in this project. We recommend keeping a reference to this repo’s GitHub URL.
 
@@ -104,7 +104,7 @@ If you need other workflow states than the ones provided in this demo, you may r
 
 #### `app/documentActions`
 
-This demo is made to showcase Sanity’s new _Document actions API_. This API enables the customization of the buttons in the footer drawer of the document editing environment in the Sanity Studio.
+This demo is made to showcase [Sanity’s _Document actions API_](https://www.sanity.io/docs/document-actions-api). This API enables the customization of the buttons in the footer drawer of the document editing environment in the Sanity Studio.
 
 In `app/documentActions/index.js` you’ll find the document actions resolver function, and the custom actions used for the workflow implementation are placed in the `app/documentActions/workflow` directory.
 
@@ -119,11 +119,9 @@ If you want to disable the custom document actions, then remove the document act
   ]
 ```
 
-See the documentation for more information on how to use the Document actions API.
-
 #### `app/documentBadges`
 
-The _Document badges API_ is related to the document actions, and is a way to customize the document status badges in the editing environment.
+[The _Document badges API_](https://www.sanity.io/docs/custom-document-badges) is related to the document actions, and is a way to customize the document status badges in the editing environment.
 
 ```json
   "parts": [
@@ -135,8 +133,6 @@ The _Document badges API_ is related to the document actions, and is a way to cu
 ```
 
 If you want to disable the custom document badges, then remove the document badge resolver configuration from the `parts` array in `sanity.json`:
-
-See the documentation for more information on how to use the Document badges API.
 
 #### `app/lib`
 
