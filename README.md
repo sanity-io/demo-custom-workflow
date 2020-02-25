@@ -4,19 +4,6 @@ A demonstration of a custom content publishing workflow using [Sanity](https://w
 
 [Read blog post: “Document Actions: Workflows, Your Way”](https://www.sanity.io/blog/releasing-document-actions-workflows-your-way)
 
-## Development
-
-Push [this link](https://github.com/sanity-io/demo-custom-workflow/generate) or the **Use this template** button, and follow the instructions below.
-
-```sh
-git clone git@github.com:<your-github-username>/demo-custom-workflow.git
-cd demo-custom-workflow
-npm install
-
-# Start the development server
-npm start
-```
-
 ## Documentation
 
 - [What’s the deal with this project?](#whats-the-deal-with-this-project)
@@ -39,21 +26,24 @@ npm start
 
 ### What’s the deal with this project?
 
-The purpose of this repository is to provide an example of how to go about [creating a custom publishing workflow environment](https://www.sanity.io/docs/custom-workflows) using [Sanity Studio](https://www.sanity.io/docs/sanity-studio).
+The purpose of this repository is to provide an example of how to go about [creating a custom publishing workflow environment](https://www.sanity.io/docs/custom-workflows) using [Sanity Studio](https://www.sanity.io/docs/sanity-studio). _This is a demo and will not be maintained._ 
 
 > NOTE: Some of the code in this demo uses internal APIs that may change in the future. If you use this code as a starting point, and experience missing functionality, please review the changelog in this project. We recommend keeping a reference to this repo’s GitHub URL.
 
 #### Start a new project using this demo as a boilerplate
 
+
+Push [this link](https://github.com/sanity-io/demo-custom-workflow/generate) or the **Use this template** button, and follow the instructions below.
+
+
 ```sh
-git clone git@github.com:sanity-io/demo-custom-workflow.git my-sanity-studio
+git clone git@github.com:<your-username>/demo-custom-workflow.git my-sanity-studio
 cd my-sanity-studio
-rm -rf .git
 # customize README.md
 # customize package.json
 # then
-git init
 sanity init
+# Say “Yes” to reconfigure the studio and follow the instructions
 ```
 
 #### Create your custom schema definitions
@@ -196,4 +186,16 @@ The `app/tools/board.js` is the root configuration for the KANBAN tool in this d
       "path": "app/tools/board"
     }
   ]
+```
+
+
+## Development
+
+```sh
+git clone git@github.com:sanity-io/demo-custom-workflow.git
+cd demo-custom-workflow
+npm install
+
+# Start the development server
+npm start
 ```
