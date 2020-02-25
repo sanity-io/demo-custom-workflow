@@ -2,10 +2,14 @@
 
 A demonstration of a custom content publishing workflow using [Sanity](https://www.sanity.io/).
 
+[Read blog post: “Document Actions: Workflows, Your Way”](https://www.sanity.io/blog/releasing-document-actions-workflows-your-way)
+
 ## Development
 
+Push [this link](https://github.com/sanity-io/demo-custom-workflow/generate) or the **Use this template** button, and follow the instructions below.
+
 ```sh
-git clone git@github.com:sanity-io/demo-custom-workflow.git
+git clone git@github.com:<your-github-username>/demo-custom-workflow.git
 cd demo-custom-workflow
 npm install
 
