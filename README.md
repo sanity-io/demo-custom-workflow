@@ -2,6 +2,8 @@
 
 A demonstration of a custom content publishing workflow using [Sanity](https://www.sanity.io/).
 
+![Demo of Custom Workflows](https://cdn.sanity.io/images/3do82whm/next/7b33af537679c9143e954ca601b1e73ebfb2ff48-634x356.gif)
+
 [Read blog post: “Document Actions: Workflows, Your Way”](https://www.sanity.io/blog/releasing-document-actions-workflows-your-way)
 
 ## Documentation
