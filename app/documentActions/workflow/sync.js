@@ -8,16 +8,19 @@ export function syncAction(props) {
   const {state} = metadata.data
   const isDraft = Boolean(props.draft)
   const isPublished = Boolean(props.published)
+  const isLoaded = isDraft || isPublished
 
   useEffect(() => {
-    if (state === 'published' && !props.published) {
-      if (!ops.publish.disabled) ops.publish.execute()
-    }
+    if (isLoaded) {
+      if (state === 'published' && !props.published) {
+        if (!ops.publish.disabled) ops.publish.execute()
+      }
 
-    if (state !== 'published' && !props.draft) {
-      if (!ops.unpublish.disabled) ops.unpublish.execute()
+      if (state !== 'published' && !props.draft) {
+        if (!ops.unpublish.disabled) ops.unpublish.execute()
+      }
     }
-  }, [state, isDraft, isPublished])
+  }, [isLoaded])
 
   return null
 }
