@@ -1,7 +1,7 @@
 import CheckIcon from 'part:@sanity/base/check-icon'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export const approveAction = props => {
+export function approveAction(props) {
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 
   if (metadata.data.state !== 'inReview') {
@@ -10,7 +10,6 @@ export const approveAction = props => {
 
   const onHandle = () => {
     metadata.setState('approved')
-    // metadata.commit()
     props.onComplete()
   }
 

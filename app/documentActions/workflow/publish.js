@@ -2,7 +2,7 @@ import PublishIcon from 'react-icons/lib/md/publish'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 import {useDocumentOperation} from '@sanity/react-hooks'
 
-export const publishAction = props => {
+export function publishAction(props) {
   const ops = useDocumentOperation(props.id, props.type)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 
@@ -17,7 +17,6 @@ export const publishAction = props => {
     }
 
     metadata.setState('published')
-    // metadata.commit()
     ops.publish.execute()
     props.onComplete()
   }

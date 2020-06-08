@@ -1,7 +1,7 @@
 import EditIcon from 'part:@sanity/base/edit-icon'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export const requestChangesAction = props => {
+export function requestChangesAction(props) {
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 
   if (metadata.data.state !== 'inReview') {
@@ -10,7 +10,6 @@ export const requestChangesAction = props => {
 
   const onHandle = () => {
     metadata.setState('changesRequested')
-    // metadata.commit()
     props.onComplete()
   }
 

@@ -1,7 +1,7 @@
 import {useDocumentOperation} from '@sanity/react-hooks'
 
-// TODO
-export const discardChangesAction = props => {
+// @todo
+export function discardChangesAction(props) {
   const ops = useDocumentOperation(props.id, props.type)
 
   const onHandle = async () => {

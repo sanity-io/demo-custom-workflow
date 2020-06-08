@@ -2,7 +2,7 @@ import {useDocumentOperation} from '@sanity/react-hooks'
 import CloseIcon from 'part:@sanity/base/close-icon'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export const unpublishAction = props => {
+export function unpublishAction(props) {
   const ops = useDocumentOperation(props.id, props.type)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 
@@ -17,7 +17,6 @@ export const unpublishAction = props => {
     }
 
     metadata.setState('draft')
-    // metadata.commit()
     ops.unpublish.execute()
     props.onComplete()
   }

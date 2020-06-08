@@ -3,7 +3,7 @@ import EyeIcon from 'part:@sanity/base/eye-icon'
 import {RequestReviewWizard} from '../../components/requestReviewWizard'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export const requestReviewAction = props => {
+export function requestReviewAction(props) {
   const [showWizardDialog, setShowWizardDialog] = React.useState(false)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
   const {state} = metadata.data
@@ -28,7 +28,6 @@ export const requestReviewAction = props => {
     }
 
     metadata.setState('inReview')
-    // metadata.commit()
     props.onComplete()
   }
 

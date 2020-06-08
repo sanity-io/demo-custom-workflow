@@ -4,7 +4,7 @@ import {inferMetadataState} from '../../lib/workflow/helpers'
 import {useWorkflowMetadata} from '../../lib/workflow/metadata'
 import {useDocumentOperation} from '@sanity/react-hooks'
 
-export const deleteAction = props => {
+export function deleteAction(props) {
   const [showConfirmDialog, setShowConfirmDialog] = React.useState(false)
   const ops = useDocumentOperation(props.id, props.type)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
