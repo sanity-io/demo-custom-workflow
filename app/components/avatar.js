@@ -20,8 +20,8 @@ export function Avatar(props) {
 
       {!user.imageUrl && (
         <div className={styles.initials}>
-          {user.givenName.substr(0, 1)}
-          {user.familyName.substr(0, 1)}
+          {user.givenName && user.givenName.substr(0, 1)}
+          {user.familyName && user.familyName.substr(0, 1)}
         </div>
       )}
     </div>
