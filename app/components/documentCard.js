@@ -2,7 +2,7 @@ import EditIcon from 'part:@sanity/base/edit-icon'
 import {SanityDefaultPreview} from 'part:@sanity/base/preview'
 import PopOverDialog from 'part:@sanity/components/dialogs/popover'
 import React, {useState} from 'react'
-import AddIcon from 'react-icons/lib/md/add'
+import { MdAdd as AddIcon } from "react-icons/md";
 import {useLatestDocumentPreview} from '../lib/document'
 import {useIntentLink} from '../lib/router'
 import {AvatarGroup} from './avatarGroup'
