@@ -1,4 +1,4 @@
-import PublishIcon from 'react-icons/lib/md/publish'
+import {PublishIcon} from 'react-icons/md'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 import {useDocumentOperation} from '@sanity/react-hooks'
 
