@@ -16,16 +16,16 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^1.149.3",
-    "@sanity/components": "^1.149.3",
-    "@sanity/core": "^1.149.2",
-    "@sanity/default-layout": "^1.149.3",
-    "@sanity/default-login": "^1.149.0",
-    "@sanity/desk-tool": "^1.149.3",
-    "@sanity/react-hooks": "^1.149.3",
+    "@sanity/base": "^1.149.15",
+    "@sanity/components": "^1.149.15",
+    "@sanity/core": "^1.149.13",
+    "@sanity/default-layout": "^1.149.15",
+    "@sanity/default-login": "^1.149.11",
+    "@sanity/desk-tool": "^1.149.15",
+    "@sanity/react-hooks": "^1.149.15",
     "@sanity/vision": "^1.149.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-use-gesture": "^7.0.4"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-use-gesture": "^7.0.15"
   }
 }
