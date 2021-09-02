@@ -77,12 +77,7 @@ export function DocumentCard(props) {
                   )
                 }
                 menu={
-                  <Menu
-                    style={{maxHeight: 250}}
-                    onItemClick={() => {
-                      console.log(`clicked`)
-                    }}
-                  >
+                  <Menu style={{maxHeight: 250}}>
                     <UserAssignmentMenu
                       value={assignees || []}
                       userList={userList}
