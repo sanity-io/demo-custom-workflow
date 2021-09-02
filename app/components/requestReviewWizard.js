@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Box, Menu, MenuItem} from '@sanity/ui'
+import {Button, Box, Menu, Card} from '@sanity/ui'
 
 import {useProjectUsers} from '../lib/user'
 import UserAssignmentMenu from './UserAssignmentMenu'
@@ -33,15 +33,19 @@ export default function RequestReviewWizard({onSend, metadata}) {
   }
 
   return (
-    <Menu style={{maxHeight: 250}}>
-      <UserAssignmentMenu {...inputProps} value={value} userList={userList} />
-
-      <MenuItem
-        tone={value.length === 0 ? undefined : 'primary'}
-        disabled={value.length === 0}
-        onClick={handleSend}
-        text="Send request"
-      />
-    </Menu>
+    <>
+      <Menu style={{maxHeight: 250}}>
+        <UserAssignmentMenu {...inputProps} value={value} userList={userList} />
+      </Menu>
+      <Card borderTop={1} padding={1} style={{textAlign: 'center'}}>
+        <Button
+          tone={value.length === 0 ? undefined : 'primary'}
+          disabled={value.length === 0}
+          onClick={handleSend}
+          text="Send request"
+          style={{width: `100%`}}
+        />
+      </Card>
+    </>
   )
 }

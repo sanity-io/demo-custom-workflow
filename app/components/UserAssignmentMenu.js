@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import {Box, Text, Menu, MenuItem, MenuDivider, TextInput, Flex, Badge, Spinner} from '@sanity/ui'
+import {Box, Text, MenuItem, TextInput, Flex, Badge} from '@sanity/ui'
 import {AddCircleIcon, RemoveCircleIcon, RestoreIcon} from '@sanity/icons'
 import {UserAvatar} from '@sanity/base/components'
 
@@ -75,13 +76,13 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
         text="Clear assignees"
       />
 
-      <MenuItem>
+      <Box padding={1}>
         <TextInput
           onChange={handleSearchChange}
           placeholder="Search members"
           value={searchString}
         />
-      </MenuItem>
+      </Box>
 
       {searchString && !searchResults?.length === 0 && <MenuItem disabled text="No matches" />}
 
@@ -107,4 +108,12 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
         ))}
     </>
   )
+}
+
+UserAssignmentMenu.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  userList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.arrayOf(PropTypes.string).isRequired
 }

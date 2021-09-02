@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {Box, Button, Card, Flex, Menu, MenuButton, Stack} from '@sanity/ui'
+import {Box, Button, Card, Flex, Menu, MenuButton, MenuItem, Stack, TextInput} from '@sanity/ui'
 import {AddIcon, DragHandleIcon} from '@sanity/icons'
 import {SanityDefaultPreview} from 'part:@sanity/base/preview'
 import React, {useMemo} from 'react'
@@ -77,7 +77,12 @@ export function DocumentCard(props) {
                   )
                 }
                 menu={
-                  <Menu style={{maxHeight: 250}}>
+                  <Menu
+                    style={{maxHeight: 250}}
+                    onItemClick={() => {
+                      console.log(`clicked`)
+                    }}
+                  >
                     <UserAssignmentMenu
                       value={assignees || []}
                       userList={userList}
