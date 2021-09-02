@@ -1,7 +1,8 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {filter, map, switchMap} from 'rxjs/operators'
-import {getDocumentMutations$} from '../lib/document'
-import {getDocumentQuery$} from '../lib/document'
+import {FiTag} from 'react-icons/fi'
+
+import {getDocumentMutations$, getDocumentQuery$} from '../lib/document'
 import {getCurrentUser$} from '../lib/user'
 
 const WORKFLOW_DOCUMENTS_FILTER = `_type == $type && $userId in assignees`
@@ -17,6 +18,7 @@ const WORKFLOW_DOCUMENTS_QUERY = `
 export const workflowListItems = [
   S.listItem()
     .title('Assigned to me')
+    .icon(FiTag)
     .id('me')
     .child(() => {
       return getCurrentUser$().pipe(
@@ -38,13 +40,7 @@ export const workflowListItems = [
           return S.list()
             .title(docs.length ? 'Assigned to me' : 'No assigments')
             .id('me')
-            .items(
-              docs.map(item =>
-                S.documentListItem()
-                  .id(item._id)
-                  .schemaType(item._type)
-              )
-            )
+            .items(docs.map(item => S.documentListItem().id(item._id).schemaType(item._type)))
         })
       )
     })

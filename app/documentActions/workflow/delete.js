@@ -1,8 +1,8 @@
 import React from 'react'
 import TrashIcon from 'part:@sanity/base/trash-icon'
+import {useDocumentOperation} from '@sanity/react-hooks'
 import {inferMetadataState} from '../../lib/workflow/helpers'
 import {useWorkflowMetadata} from '../../lib/workflow/metadata'
-import {useDocumentOperation} from '@sanity/react-hooks'
 
 export function deleteAction(props) {
   const [showConfirmDialog, setShowConfirmDialog] = React.useState(false)

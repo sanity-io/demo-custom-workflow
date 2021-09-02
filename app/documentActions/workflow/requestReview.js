@@ -1,7 +1,8 @@
 import React from 'react'
 import EyeIcon from 'part:@sanity/base/eye-icon'
-import {RequestReviewWizard} from '../../components/requestReviewWizard'
+
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
+import RequestReviewWizard from '../../components/RequestReviewWizard'
 
 export function requestReviewAction(props) {
   const [showWizardDialog, setShowWizardDialog] = React.useState(false)

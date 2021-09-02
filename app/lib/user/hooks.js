@@ -25,7 +25,11 @@ export function useUserList(userIds) {
 
 export function useProjectUsers() {
   const project = useCurrentProject()
-  const allUserIds = project && project.members.map(user => user.id)
+  const allProjectUserIds = project && project.members.map(user => user.id)
+  const currentUserId = project && project.members.find(user => user.isCurrentUser)?.id
+  const userList = useUserList(allProjectUserIds || [])
 
-  return useUserList(allUserIds || [])
+  return userList?.length
+    ? userList.map(user => ({...user, isCurrentUser: user.id === currentUserId}))
+    : userList
 }

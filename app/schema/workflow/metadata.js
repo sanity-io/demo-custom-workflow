@@ -1,4 +1,4 @@
-import {UserIdArrayField} from '../../components/userIdArrayField'
+import UserAssignmentMenu from '../../components/UserAssignmentMenu'
 
 export default {
   type: 'document',
@@ -13,7 +13,7 @@ export default {
       title: 'Assignees',
       description: 'The people who are assigned to move this further in the workflow.',
       of: [{type: 'string'}],
-      inputComponent: UserIdArrayField
+      inputComponent: UserAssignmentMenu
     }
   ],
   liveEdit: true

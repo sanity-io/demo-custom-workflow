@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Custom workflow demo"
+    "name": "Custom Workflow"
   },
   "api": {
     "projectId": "m2begyfh",
@@ -39,6 +39,10 @@
     {
       "implements": "part:@sanity/base/tool",
       "path": "app/tools/board"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "app/variableOverrides.css"
     }
   ]
 }
