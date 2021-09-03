@@ -1,22 +1,29 @@
-import React from 'react'
-import {Avatar} from './avatar'
+import PropTypes from 'prop-types'
+import React, {useMemo} from 'react'
+import {UserAvatar} from '@sanity/base/components'
+import {Box, Flex, Text} from '@sanity/ui'
 
-// Import styles
-import styles from './avatarGroup.css'
-
-export function AvatarGroup(props) {
-  const {userIds} = props
-  const len = userIds.length
-  const visibleIds = userIds.slice(0, 3)
+export function AvatarGroup({userIds}) {
+  const max = 3
+  const len = userIds?.length
+  const visibleUsers = useMemo(() => userIds.slice(0, max), [userIds])
 
   return (
-    <div className={styles.root}>
-      {visibleIds.map((userId, userIdIdx) => (
-        <div key={userId} style={{zIndex: len - userIdIdx + 1}}>
-          <Avatar userId={userId} />
-        </div>
+    <Flex align="center">
+      {visibleUsers.map(userId => (
+        <Box key={userId} style={{marginRight: -5}}>
+          <UserAvatar userId={userId} />
+        </Box>
       ))}
-      {len > 3 && <div className={styles.plus}>+{len - 3}</div>}
-    </div>
+      {len > max && (
+        <Box paddingLeft={2}>
+          <Text size={1}>+{len - max}</Text>
+        </Box>
+      )}
+    </Flex>
   )
+}
+
+AvatarGroup.propTypes = {
+  userIds: PropTypes.arrayOf(PropTypes.string).isRequired
 }

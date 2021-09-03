@@ -2,7 +2,7 @@ import {useWorkflowMetadata} from '../../lib/workflow/metadata'
 import {inferMetadataState} from '../../lib/workflow/helpers'
 import {states} from '../../config/workflow'
 
-function publishedBadge(docInfo) {
+function PublishedBadge(docInfo) {
   if (!docInfo.published) {
     return null
   }
@@ -14,7 +14,7 @@ function publishedBadge(docInfo) {
   }
 }
 
-function workflowBadge(docInfo) {
+function WorkflowBadge(docInfo) {
   const metadata = useWorkflowMetadata(docInfo.id, inferMetadataState(docInfo))
   const state = states.find(s => s.id === metadata.data.state)
 
@@ -40,5 +40,5 @@ function workflowBadge(docInfo) {
 }
 
 export function resolveWorkflowDocumentBagdes(/* docInfo */) {
-  return [publishedBadge, workflowBadge]
+  return [PublishedBadge, WorkflowBadge]
 }

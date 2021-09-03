@@ -1,6 +1,7 @@
-import PluginIcon from 'part:@sanity/base/plugin-icon'
 import React from 'react'
-import {BoardTool} from '../components/boardTool'
+import {SplitVerticalIcon} from '@sanity/icons'
+
+import {BoardTool} from '../components/BoardTool'
 import {RouterProvider} from '../lib/router'
 
 function BoardToolRoot(props) {
@@ -15,5 +16,5 @@ export default {
   name: 'workflow',
   title: 'Workflow',
   component: BoardToolRoot,
-  icon: PluginIcon
+  icon: SplitVerticalIcon
 }

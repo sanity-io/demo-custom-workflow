@@ -1,21 +1,21 @@
-import {approveAction} from './approve'
-import {deleteAction} from './delete'
-import {discardChangesAction} from './discardChanges'
-import {publishAction} from './publish'
-import {requestChangesAction} from './requestChanges'
-import {requestReviewAction} from './requestReview'
-import {syncAction} from './sync'
-import {unpublishAction} from './unpublish'
+import {ApproveAction} from './ApproveAction'
+import {DeleteAction} from './DeleteAction'
+import {DiscardChangesAction} from './DiscardChangesAction'
+import {PublishAction} from './PublishAction'
+import {RequestChangesAction} from './RequestChangesAction'
+import {RequestReviewAction} from './RequestReviewAction'
+import {SyncAction} from './SyncAction'
+import {UnpublishAction} from './Unpublish'
 
 export function resolveWorkflowActions(/* docInfo */) {
   return [
-    syncAction,
-    requestReviewAction,
-    approveAction,
-    requestChangesAction,
-    publishAction,
-    unpublishAction,
-    discardChangesAction,
-    deleteAction
+    SyncAction,
+    RequestReviewAction,
+    ApproveAction,
+    RequestChangesAction,
+    PublishAction,
+    UnpublishAction,
+    DiscardChangesAction,
+    DeleteAction
   ]
 }

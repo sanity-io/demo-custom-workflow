@@ -1,11 +1,13 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import Button from 'part:@sanity/components/buttons/default'
-import {UserIdArrayInput} from './userIdArrayInput'
+import {Button, Menu, Card} from '@sanity/ui'
 
-import styles from './requestReviewWizard.css'
+import {useProjectUsers} from '../lib/user'
+import UserAssignmentMenu from './UserAssignmentMenu'
 
-export function RequestReviewWizard(props) {
-  const [value, setValue] = React.useState(props.metadata.assignees || [])
+export default function RequestReviewWizard({onSend, metadata}) {
+  const [value, setValue] = React.useState(metadata.assignees || [])
+  const userList = useProjectUsers() || []
 
   const inputProps = {
     onAdd(userId) {
@@ -28,21 +30,30 @@ export function RequestReviewWizard(props) {
   }
 
   const handleSend = () => {
-    if (props.onSend) props.onSend(value)
+    if (onSend) onSend(value)
   }
 
   return (
     <>
-      <UserIdArrayInput {...inputProps} value={value} />
-      <div className={styles.buttonContainer}>
+      <Menu style={{maxHeight: 250}}>
+        <UserAssignmentMenu {...inputProps} value={value} userList={userList} />
+      </Menu>
+      <Card borderTop={1} padding={1} style={{textAlign: 'center'}}>
         <Button
-          color={value.length === 0 ? undefined : 'primary'}
+          tone={value.length === 0 ? undefined : 'primary'}
           disabled={value.length === 0}
           onClick={handleSend}
-        >
-          Send request
-        </Button>
-      </div>
+          text="Send request"
+          style={{width: `100%`}}
+        />
+      </Card>
     </>
   )
+}
+
+RequestReviewWizard.propTypes = {
+  metadata: PropTypes.shape({
+    assignees: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onSend: PropTypes.func.isRequired
 }

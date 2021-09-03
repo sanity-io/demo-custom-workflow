@@ -239,17 +239,14 @@ function getWorkflowMetadataListState$(workflowTypes) {
     methodSubject.next({type: 'clearAssignees', documentId, timestamp: Date.now()})
 
     // TODO: await before handling event in the reducer?
-    client
-      .patch(`workflow-metadata.${documentId}`)
-      .unset(['assignees'])
-      .commit()
+    client.patch(`workflow-metadata.${documentId}`).unset(['assignees']).commit()
   }
 
   function importDocuments(documentIds) {
     // TODO: optimistically update?
 
-    const tx = documentIds.reduce((tx, documentId) => {
-      return tx.createOrReplace({
+    const tx = documentIds.reduce((item, documentId) => {
+      return item.createOrReplace({
         _id: `workflow-metadata.${documentId}`,
         _type: 'workflow.metadata',
         state: 'draft',
@@ -264,10 +261,7 @@ function getWorkflowMetadataListState$(workflowTypes) {
     methodSubject.next({type: 'move', documentId, revisionId, nextState, timestamp: Date.now()})
 
     // TODO: await before handling event in the reducer?
-    client
-      .patch(`workflow-metadata.${documentId}`)
-      .set({state: nextState})
-      .commit()
+    client.patch(`workflow-metadata.${documentId}`).set({state: nextState}).commit()
 
     if (nextState === 'published') {
       ensurePublished(documentId, revisionId)
