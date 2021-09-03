@@ -2,8 +2,8 @@ import React from 'react'
 import {useDrag} from 'react-use-gesture'
 import {Flex, Card, Box, Stack, Grid, Spinner, Label, Button} from '@sanity/ui'
 
-import {states, types as workflowTypes} from '../config/workflow'
 import {useWorkflowMetadataList} from '../lib/workflow'
+import {states, types as workflowTypes} from '../config/workflow'
 import {useProjectUsers} from '../lib/user'
 import {DocumentCard} from './DocumentCard'
 

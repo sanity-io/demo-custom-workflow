@@ -1,5 +1,6 @@
 import {useDocumentOperation} from '@sanity/react-hooks'
 import CloseIcon from 'part:@sanity/base/close-icon'
+
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
 export function UnpublishAction(props) {
