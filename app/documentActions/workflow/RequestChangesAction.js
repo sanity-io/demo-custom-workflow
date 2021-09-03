@@ -1,7 +1,7 @@
-import EditIcon from 'part:@sanity/base/edit-icon'
+import {EditIcon} from '@sanity/icons'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export function requestChangesAction(props) {
+export function RequestChangesAction(props) {
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 
   if (metadata.data.state !== 'inReview') {

@@ -2,7 +2,7 @@ import {useDocumentOperation} from '@sanity/react-hooks'
 import {useEffect} from 'react'
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export function syncAction(props) {
+export function SyncAction(props) {
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
   const ops = useDocumentOperation(props.id, props.type)
   const {state} = metadata.data

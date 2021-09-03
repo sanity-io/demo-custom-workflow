@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import {Button, Box, Menu, Card} from '@sanity/ui'
+import {Button, Menu, Card} from '@sanity/ui'
 
 import {useProjectUsers} from '../lib/user'
 import UserAssignmentMenu from './UserAssignmentMenu'
@@ -48,4 +49,11 @@ export default function RequestReviewWizard({onSend, metadata}) {
       </Card>
     </>
   )
+}
+
+RequestReviewWizard.propTypes = {
+  metadata: PropTypes.shape({
+    assignees: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onSend: PropTypes.func.isRequired
 }

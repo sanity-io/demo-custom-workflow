@@ -31,7 +31,7 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
     setSearchString(event.target.value)
   }
 
-  const handleCheckboxUpdate = (isChecked, user) => {
+  const handleAssignment = (isChecked, user) => {
     if (!isChecked) {
       if (onAdd) onAdd(user.id)
     } else if (onRemove) onRemove(user.id)
@@ -91,7 +91,7 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
           <MenuItem
             key={user.id}
             selected={value.indexOf(user.id) > -1}
-            onClick={() => handleCheckboxUpdate(value.indexOf(user.id) > -1, user)}
+            onClick={() => handleAssignment(value.indexOf(user.id) > -1, user)}
           >
             <Flex align="center" padding={2}>
               <UserAvatar userId={user.id} />

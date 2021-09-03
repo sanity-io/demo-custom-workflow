@@ -1,21 +1,18 @@
 /* eslint-disable react/prop-types */
-import {Box, Button, Card, Flex, Menu, MenuButton, MenuItem, Stack, TextInput} from '@sanity/ui'
+import {Button, Card, Flex, Menu, Popover, Stack, useClickOutside} from '@sanity/ui'
 import {AddIcon, DragHandleIcon} from '@sanity/icons'
 import {SanityDefaultPreview} from 'part:@sanity/base/preview'
-import React, {useMemo} from 'react'
+import React, {useState, useMemo} from 'react'
 import {useLatestDocumentPreview} from '../../lib/document'
 
 import {AvatarGroup} from '../AvatarGroup'
 import UserAssignmentMenu from '../UserAssignmentMenu'
-import {useProjectUsers} from '../../lib/user'
-
 import EditButton from './EditButton'
 
 export function DocumentCard(props) {
-  const {bindDrag, dragData, onAssigneeAdd, onAssigneeRemove, onAssigneesClear} = props
+  const {userList, bindDrag, dragData, onAssigneeAdd, onAssigneeRemove, onAssigneesClear} = props
   const {assignees, documentId, reference} = props.metadata
   const preview = useLatestDocumentPreview(documentId, reference._type)
-  const userList = useProjectUsers() || []
 
   const isBeingDragged = useMemo(() => dragData?.documentId === documentId, [dragData, documentId])
 
@@ -28,6 +25,18 @@ export function DocumentCard(props) {
         userSelect: 'none'
       }
     : {}
+
+  // Open/close handler
+  const [popoverRef, setPopoverRef] = useState(null)
+  const [openId, setOpenId] = useState(``)
+
+  useClickOutside(() => setOpenId(``), [popoverRef])
+
+  const handleKeyDown = React.useCallback(e => {
+    if (e.key === 'Escape') {
+      setOpenId(``)
+    }
+  }, [])
 
   return (
     <div style={inlineStyle}>
@@ -58,25 +67,10 @@ export function DocumentCard(props) {
 
           <Card padding={2} radius={2}>
             <Flex align="center" justify="space-between" gap={1}>
-              <MenuButton
-                id={`${documentId}-user-assignment`}
-                button={
-                  !assignees || assignees.length === 0 ? (
-                    <Button
-                      fontSize={1}
-                      padding={2}
-                      tabIndex={-1}
-                      icon={AddIcon}
-                      text="Assign"
-                      tone="positive"
-                    />
-                  ) : (
-                    <Button padding={0} mode="bleed" style={{width: `100%`}}>
-                      <AvatarGroup userIds={assignees} />
-                    </Button>
-                  )
-                }
-                menu={
+              <Popover
+                ref={setPopoverRef}
+                onKeyDown={handleKeyDown}
+                content={
                   <Menu style={{maxHeight: 250}}>
                     <UserAssignmentMenu
                       value={assignees || []}
@@ -87,9 +81,30 @@ export function DocumentCard(props) {
                     />
                   </Menu>
                 }
-                placement="right"
                 portal
-              />
+                open={openId === documentId}
+              >
+                {!assignees || assignees.length === 0 ? (
+                  <Button
+                    onClick={() => setOpenId(documentId)}
+                    fontSize={1}
+                    padding={2}
+                    tabIndex={-1}
+                    icon={AddIcon}
+                    text="Assign"
+                    tone="positive"
+                  />
+                ) : (
+                  <Button
+                    onClick={() => setOpenId(documentId)}
+                    padding={0}
+                    mode="bleed"
+                    style={{width: `100%`}}
+                  >
+                    <AvatarGroup userIds={assignees} />
+                  </Button>
+                )}
+              </Popover>
 
               <EditButton id={documentId} type={reference._type} />
             </Flex>

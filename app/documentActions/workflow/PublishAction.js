@@ -1,8 +1,8 @@
-import { MdPublish as PublishIcon } from "react-icons/md";
-import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
+import {PublishIcon} from '@sanity/icons'
 import {useDocumentOperation} from '@sanity/react-hooks'
+import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 
-export function publishAction(props) {
+export function PublishAction(props) {
   const ops = useDocumentOperation(props.id, props.type)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
 

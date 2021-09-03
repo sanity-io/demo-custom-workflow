@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import EyeIcon from 'part:@sanity/base/eye-icon'
+import {EyeOpenIcon} from '@sanity/icons'
 
 import {inferMetadataState, useWorkflowMetadata} from '../../lib/workflow'
 import RequestReviewWizard from '../../components/RequestReviewWizard'
 
-export function requestReviewAction(props) {
+export function RequestReviewAction(props) {
   const [showWizardDialog, setShowWizardDialog] = React.useState(false)
   const metadata = useWorkflowMetadata(props.id, inferMetadataState(props))
   const {state} = metadata.data
@@ -41,8 +42,14 @@ export function requestReviewAction(props) {
       onClose: props.onComplete
     },
     disabled: showWizardDialog,
-    icon: EyeIcon,
+    icon: EyeOpenIcon,
     label: 'Request review',
     onHandle
   }
+}
+
+RequestReviewAction.propTypes = {
+  draft: PropTypes.object,
+  id: PropTypes.string,
+  onComplete: PropTypes.func
 }

@@ -4,6 +4,7 @@ import {Flex, Card, Box, Stack, Grid, Spinner, Label, Button} from '@sanity/ui'
 
 import {states, types as workflowTypes} from '../config/workflow'
 import {useWorkflowMetadataList} from '../lib/workflow'
+import {useProjectUsers} from '../lib/user'
 import {DocumentCard} from './DocumentCard'
 
 import styles from './BoardTool.css'
@@ -15,6 +16,9 @@ function filterItemsByState(items, state) {
 export function BoardTool() {
   const [dragData, setDragData] = React.useState(null)
   const [targetState, setTargetState] = React.useState(null)
+
+  const userList = useProjectUsers() || []
+
   const metadataList = useWorkflowMetadataList(workflowTypes)
   const items = metadataList && metadataList.data
   const documentIds = metadataList.documentIds
@@ -114,6 +118,7 @@ export function BoardTool() {
                             bindDrag={bindDrag}
                             dragData={dragData}
                             metadata={item}
+                            userList={userList}
                             onAssigneeAdd={userId =>
                               metadataList.addAssignee(item.documentId, userId)
                             }

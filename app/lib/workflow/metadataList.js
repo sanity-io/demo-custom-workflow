@@ -245,8 +245,8 @@ function getWorkflowMetadataListState$(workflowTypes) {
   function importDocuments(documentIds) {
     // TODO: optimistically update?
 
-    const tx = documentIds.reduce((tx, documentId) => {
-      return tx.createOrReplace({
+    const tx = documentIds.reduce((item, documentId) => {
+      return item.createOrReplace({
         _id: `workflow-metadata.${documentId}`,
         _type: 'workflow.metadata',
         state: 'draft',
