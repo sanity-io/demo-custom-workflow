@@ -1,6 +1,8 @@
 import {omit} from 'lodash'
-import client from 'part:@sanity/base/client'
+import sanityClient from 'part:@sanity/base/client'
 import schema from 'part:@sanity/base/schema'
+
+const client = sanityClient.withConfig({apiVersion: `2021-05-19`})
 
 function fetchSnapshots(documentId) {
   return client.fetch('{"published":*[_id==$publishedId][0],"draft":*[_id==$draftId][0]}', {

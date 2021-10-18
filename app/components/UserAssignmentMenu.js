@@ -114,6 +114,6 @@ UserAssignmentMenu.propTypes = {
   onAdd: PropTypes.func.isRequired,
   onClear: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
-  userList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  userList: PropTypes.arrayOf(PropTypes.object).isRequired,
   value: PropTypes.arrayOf(PropTypes.string).isRequired
 }
