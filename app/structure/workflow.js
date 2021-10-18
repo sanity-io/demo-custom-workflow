@@ -1,9 +1,9 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {filter, map, switchMap} from 'rxjs/operators'
 import {FiTag} from 'react-icons/fi'
+import userDatastore from 'part:@sanity/base/user'
 
 import {getDocumentMutations$, getDocumentQuery$} from '../lib/document'
-import {getCurrentUser$} from '../lib/user'
 
 const WORKFLOW_DOCUMENTS_FILTER = `_type == $type && $userId in assignees`
 const WORKFLOW_DOCUMENTS_QUERY = `
@@ -21,7 +21,7 @@ export const workflowListItems = [
     .icon(FiTag)
     .id('me')
     .child(() => {
-      return getCurrentUser$().pipe(
+      return userDatastore.me.pipe(
         filter(Boolean),
         switchMap(user => {
           return getDocumentMutations$(WORKFLOW_DOCUMENTS_FILTER, {
