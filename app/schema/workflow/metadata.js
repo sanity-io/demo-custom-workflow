@@ -1,4 +1,4 @@
-import UserAssignmentMenu from '../../components/UserAssignmentMenu'
+import UserAssignmentInput from '../../components/UserAssignmentInput'
 
 export default {
   type: 'document',
@@ -13,7 +13,7 @@ export default {
       title: 'Assignees',
       description: 'The people who are assigned to move this further in the workflow.',
       of: [{type: 'string'}],
-      inputComponent: UserAssignmentMenu
+      inputComponent: UserAssignmentInput
     }
   ],
   liveEdit: true

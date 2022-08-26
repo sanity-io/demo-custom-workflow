@@ -71,15 +71,13 @@ export function DocumentCard(props) {
                 ref={setPopoverRef}
                 onKeyDown={handleKeyDown}
                 content={
-                  <Menu style={{maxHeight: 250}}>
-                    <UserAssignmentMenu
-                      value={assignees || []}
-                      userList={userList}
-                      onAdd={onAssigneeAdd}
-                      onClear={onAssigneesClear}
-                      onRemove={onAssigneeRemove}
-                    />
-                  </Menu>
+                  <UserAssignmentMenu
+                    value={assignees || []}
+                    userList={userList}
+                    onAdd={onAssigneeAdd}
+                    onClear={onAssigneesClear}
+                    onRemove={onAssigneeRemove}
+                  />
                 }
                 portal
                 open={openId === documentId}

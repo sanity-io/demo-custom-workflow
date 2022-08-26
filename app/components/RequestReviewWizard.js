@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {Button, Menu, Card} from '@sanity/ui'
+import {Button, Card} from '@sanity/ui'
 
 import {useProjectUsers} from '../lib/user'
 import UserAssignmentMenu from './UserAssignmentMenu'
@@ -35,9 +35,8 @@ export default function RequestReviewWizard({onSend, metadata}) {
 
   return (
     <>
-      <Menu style={{maxHeight: 250}}>
-        <UserAssignmentMenu {...inputProps} value={value} userList={userList} />
-      </Menu>
+      <UserAssignmentMenu {...inputProps} value={value} userList={userList} />
+
       <Card borderTop={1} padding={1} style={{textAlign: 'center'}}>
         <Button
           tone={value.length === 0 ? undefined : 'primary'}

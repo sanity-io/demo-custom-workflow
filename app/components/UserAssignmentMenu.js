@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import {Box, Text, MenuItem, TextInput, Flex, Badge} from '@sanity/ui'
+import {Box, Text, MenuItem, TextInput, Flex, Badge, Menu} from '@sanity/ui'
 import {AddCircleIcon, RemoveCircleIcon, RestoreIcon} from '@sanity/icons'
 import {UserAvatar} from '@sanity/base/components'
+import {useUserList} from '../lib/user'
 
 function searchUsers(users, searchString) {
   return users.filter(user => {
@@ -20,7 +21,14 @@ function searchUsers(users, searchString) {
   })
 }
 
-export default function UserAssignmentMenu({value = [], userList = [], onAdd, onRemove, onClear}) {
+export default function UserAssignmentMenu({
+  value = [],
+  userList = [],
+  onAdd,
+  onRemove,
+  onClear,
+  truncate = true
+}) {
   const [searchString, setSearchString] = React.useState('')
   const searchResults = searchUsers(userList || [], searchString)
 
@@ -50,7 +58,7 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
   }
 
   return (
-    <>
+    <Menu style={{maxHeight: truncate ? 250 : undefined}}>
       {meAssigned ? (
         <MenuItem
           tone="caution"
@@ -76,7 +84,7 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
         text="Clear assignees"
       />
 
-      <Box padding={1}>
+      <Box paddingY={1}>
         <TextInput
           onChange={handleSearchChange}
           placeholder="Search members"
@@ -106,7 +114,7 @@ export default function UserAssignmentMenu({value = [], userList = [], onAdd, on
             </Flex>
           </MenuItem>
         ))}
-    </>
+    </Menu>
   )
 }
 
@@ -115,5 +123,10 @@ UserAssignmentMenu.propTypes = {
   onClear: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   userList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  value: PropTypes.arrayOf(PropTypes.string).isRequired
+  value: PropTypes.arrayOf(PropTypes.string).isRequired,
+  truncate: PropTypes.bool
+}
+
+UserAssignmentMenu.defaultProps = {
+  truncate: true
 }
