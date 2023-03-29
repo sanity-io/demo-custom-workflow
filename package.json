@@ -1,62 +1,41 @@
 {
+  "name": "showcase-workflow",
   "private": true,
-  "name": "demo-custom-workflow",
-  "version": "2.0.0",
-  "description": "A demonstration of a custom publishing workflow using Sanity.",
+  "version": "1.0.0",
   "main": "package.json",
-  "author": "Sanity.io <hello@sanity.io>",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity start",
+    "dev": "sanity dev",
     "start": "sanity start",
-    "test": "sanity check",
-    "delete-metadata": "sanity exec --with-user-token app/scripts/deleteWorkflowDocs.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "postinstall": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint:fix"
-    }
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.31.0",
-    "@sanity/client": "^3.0.0",
-    "@sanity/components": "^2.14.0",
-    "@sanity/core": "^2.31.0",
-    "@sanity/default-layout": "^2.31.0",
-    "@sanity/default-login": "^2.31.0",
-    "@sanity/desk-tool": "^2.31.0",
-    "@sanity/react-hooks": "^2.31.0",
-    "@sanity/ui": "^0.33.29",
-    "@sanity/vision": "^2.31.0",
-    "husky": "^7.0.2",
-    "prettier": "^2.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-use-gesture": "^9.1.3",
-    "styled-components": "^5.3.1"
+    "@faker-js/faker": "^7.6.0",
+    "@sanity/vision": "^3.0.0",
+    "lucide-react": "^0.96.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "sanity": "^3.0.6",
+    "sanity-plugin-workflow": "1.0.0-beta.5",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.1.0",
-    "@typescript-eslint/parser": "^4.1.0",
-    "autoprefixer": "^10.2.4",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.1",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-sanity": "^5.0.0",
-    "eslint-import-resolver-webpack": "^0.11.1",
-    "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "typescript": "^4.3.4"
+    "@sanity/eslint-config-studio": "^2.0.1",
+    "eslint": "^8.29.0",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }

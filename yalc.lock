@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "sanity-plugin-workflow": {
+      "signature": "79d53fff94d6bffc6105f48a0dcaa368",
+      "link": true,
+      "replaced": "file:.yalc/sanity-plugin-workflow"
+    }
+  }
+}
