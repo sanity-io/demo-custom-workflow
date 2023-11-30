@@ -22,7 +22,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.12.0",
+    "sanity": "^3.16.1",
     "sanity-plugin-workflow": "^1.0.1",
     "styled-components": "^5.3.6"
   },
