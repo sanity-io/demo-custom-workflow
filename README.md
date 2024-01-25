@@ -1,6 +1,6 @@
-# Sanity Workflow Demo
+# Sanity Workflow Example
 
-This is a [Sanity Studio v3](https://www.sanity.io/) repository, showcasing the [Sanity Workflow Plugin](https://www.npmjs.com/package/sanity-plugin-workflow) which is currently available in Beta.
+This is a [Sanity Studio v3](https://www.sanity.io/) repository, showcasing the [Sanity Workflow Plugin Example](https://github.com/sanity-io/sanity-plugin-workflow-example).
 
 [Start a new sanity project](https://www.sanity.io/docs/getting-started-with-sanity) and [install the plugin](https://www.npmjs.com/package/sanity-plugin-workflow). Or clone this repository and update `./sanity.config.ts` with your own `projectId` and `dataset` name.
 

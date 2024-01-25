@@ -23,7 +23,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.26.0",
-    "sanity-plugin-workflow": "^1.0.2",
+    "sanity-plugin-workflow": "latest",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
