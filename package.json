@@ -16,18 +16,18 @@
   ],
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@sanity/vision": "^3.0.0",
+    "@sanity/vision": "^3.26.0",
     "lucide-react": "^0.96.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.25.0",
-    "sanity-plugin-workflow": "^1.0.1",
+    "sanity": "^3.26.0",
+    "sanity-plugin-workflow": "^1.0.2",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/eslint-config-studio": "^3.0.1",
     "eslint": "^8.29.0",
     "prettier": "^2.8.1",
     "typescript": "^4.9.4"
